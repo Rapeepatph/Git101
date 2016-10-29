@@ -23,9 +23,19 @@ namespace Git101
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/angular").Include(
+                      "~/Scripts/angular.js",
+                      "~/Scripts/app/app.js",
+                      "~/Scripts/app/map.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/leaflet").Include(
+                      "~/Scripts/leaflet.js",
+                      "~/Scripts/angular-leaflet-directive.min.js"));
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/site.css",
+                      "~/Content/leaflet.css"));
         }
     }
 }

@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<div ng-controller="MapController">
+    <leaflet lf-center="london" markers="markers" layers="layers" height="480px" width="100%"></leaflet>
+    <h1>First steps, basic example</h1>
+</div>
+<style>
+    .red {
+        border-radius: 120px;
+        opacity: .75;
+        background-color: #FF0000;
+    }
+
+    .blue {
+        border-radius: 120px;
+        opacity: .75;
+        background-color: #0000FF;
+    }
+    .green{
+        border-radius: 120px;
+        opacity: .75;
+        background-color: #00ff21;
+    }
+</style>
+
+
+
