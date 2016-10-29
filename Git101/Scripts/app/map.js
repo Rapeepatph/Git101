@@ -1,18 +1,27 @@
 ﻿
 app.controller('MapController',  function ($scope,$http) {
     
-    
+    var items = [];
     var addressPointsToMarkers = function (points) {
         return points.map(function (ap) {
-            return {
+            return items.push({
                 layer: 'blue',
                 lat: ap[0],
                 lng: ap[1],
                 icon: icons.blue
-            };
+            });
         });
     };
-
+    var addressPointsToMarkers2 = function (points) {
+        return points.map(function (ap) {
+            return items.push({
+                layer: 'red',
+                lat: ap[0],
+                lng: ap[1],
+                icon: icons.red
+            });
+        });
+    };
 
     var icons = {
         blue: {
@@ -72,7 +81,16 @@ app.controller('MapController',  function ($scope,$http) {
     });
     $http.get('/Data/datatest.json')
        .then(function (res) {
-           $scope.markers = addressPointsToMarkers(res.data);
+           addressPointsToMarkers(res.data);
            console.log(res.data);
+           console.log("1Http"+items);
        });
+    $http.get('/Data/datatest2.json')
+       .then(function (res) {
+           addressPointsToMarkers2(res.data);
+           console.log(res.data);
+           console.log("2Http"+items);
+       });
+    console.log(items)
+    $scope.markers = items;
 });
